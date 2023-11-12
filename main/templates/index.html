@@ -1,0 +1,72 @@
+<!-- {% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <title>{{ name }} - Personal Website</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ name }}</h1>
+        <p>Experience:</p>
+        <ul>
+            {% for exp in experiences %}
+                <li>{{ exp.title }}:
+                    <ul>
+                        {% for point in exp.points %}
+                            <li>{{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html> -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'style.css' %}">
+    <style>
+        /* CSS for sub-bullet points indentation */
+        ul ul {
+            margin-left: 20px; /* Adjust the indentation as needed */
+        }
+    </style>
+    <title>{{ name }} - Personal Website</title>
+</head>
+<body>
+    <div class="container">
+        <h1>{{ name }}</h1>
+        <p>
+            <strong>{{ email }}</strong> | <a href="{{ linkedin_link }}" target="_blank">LinkedIn</a> | <a href="{{ github_link }}" target="_blank">GitHub</a>
+        </p>
+        <br>
+        <br>
+        <ul>
+            {% for exp in experiences %}
+                <li><strong>&#8226; {{ exp.title }}</strong>:
+                    <ul>
+                        {% for point in exp.points %}
+                            <li>&#8226; {{ point }}</li>
+                        {% endfor %}
+                    </ul>
+                </li>
+            {% endfor %}
+        </ul>
+
+        <a href="{% static 'my_resume.pdf' %}" download="rayhan_resume.pdf" class="download-button">Download PDF</a>
+    </div>
+</body>
+</html>
+
+
+
